@@ -1,3 +1,5 @@
+'use strict';
+
 // import { BlockEmbed } from 'quill/blots/block.js';
 // import Link from 'quill/formats/link.js';
 
@@ -31,18 +33,18 @@ function create(Quill) {
       right: '-5px',
       cursor: 'nwse-resize'
     },
-  }
+  };
 
   const getClosest = (el, sel) => {
     while ((el = el.parentElement) && !((el.matches || el.matchesSelector).call(el, sel)));
     return el;
-  }
+  };
 
   const createSpacer = () => {
-    let spacer = document.createElement('div')
+    let spacer = document.createElement('div');
     spacer.appendChild(document.createElement('br'));
     return spacer
-  }
+  };
 
   class VideoBuilder {
     
@@ -50,7 +52,7 @@ function create(Quill) {
       let iframe = document.createElement('iframe');
       iframe.setAttribute('frameborder', '0');
       iframe.setAttribute('allowfullscreen', true);
-      iframe.className = 'td-quill-video-editing'
+      iframe.className = 'td-quill-video-editing';
       iframe.setAttribute('width', node.getAttribute('width') || 300);
       iframe.setAttribute('height', node.getAttribute('height') || 150);
       iframe.setAttribute('src', src);
@@ -60,7 +62,7 @@ function create(Quill) {
     buildNode(node, wrapper) {
       node.appendChild(wrapper);
       node.setAttribute('contenteditable', 'false');
-      node.parentElement && node.parentElement.insertBefore(createSpacer(), node)
+      node.parentElement && node.parentElement.insertBefore(createSpacer(), node);
       node.parentElement && node.parentElement.appendChild(createSpacer());
       let iframe = node.getElementsByTagName('iframe')[0];
 
@@ -97,7 +99,7 @@ function create(Quill) {
         this.parentElement = this.selectedElement.parentElement;
         this.node = node;
         this.iframe = this.parentElement.getElementsByTagName('iframe')[0];
-        this.selectedElement.setAttribute('class', 'td-quill-video-overlay active')
+        this.selectedElement.setAttribute('class', 'td-quill-video-overlay active');
         let toolBar = this.buildToolBar();
         this.selectedElement.appendChild(toolBar);
         this.buildResize(); 
@@ -118,9 +120,9 @@ function create(Quill) {
 
     buildToolBar() {
       let toolbarWrapper = document.createElement('div');
-      toolbarWrapper.className = "td-quill-video-toolbar-wrapper"
+      toolbarWrapper.className = "td-quill-video-toolbar-wrapper";
       let toolbar = document.createElement('div');
-      toolbar.className = "td-quill-video-toolbar"
+      toolbar.className = "td-quill-video-toolbar";
       toolbar = this.addToolBarActions(toolbar);
       toolbarWrapper.appendChild(toolbar);
       return toolbarWrapper;
@@ -162,7 +164,7 @@ function create(Quill) {
     buildNub(pos) {
       let nub = document.createElement('span');
       nub.className = 'td-quill-resize-nub '+nubStyles[pos].cursor;
-      Object.assign(nub.style, nubStyles[pos])
+      Object.assign(nub.style, nubStyles[pos]);
       nub.addEventListener('mousedown', this.mouseDown, false);
       return nub;
     }
@@ -274,4 +276,4 @@ function create(Quill) {
 
 }
 
-export default create;
+module.exports = create;

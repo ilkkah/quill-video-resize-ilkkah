@@ -1,4 +1,12 @@
+# Fork
+
+Fork of https://github.com/lancetipton/quill-video-resize.
+
+Some improvements.
+
+
 # Resize Iframe Videos in Quill.js
+
 
 This was the outcome of learning Quill, and at the same time needing videos to be resizeable. Im sure this could be done better as a module, but when I started building it, I started it as a format not knowing what it would turn into. I may eventually move it into a module, but I'm not making any promises. Feel free to fork and knock it out.
 

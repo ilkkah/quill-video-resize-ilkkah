@@ -69,6 +69,12 @@
 .ql-editor .td-video .td-quill-video-toolbar .td-quill-video-align-action:hover {
   color: #0FCED1; 
 }
+.ql-editor .td-video .td-quill-resize-nub.nesw-resize {
+  cursor: nesw-resize;  
+}
+.ql-editor .td-video .td-quill-resize-nub.nwse-resize {
+  cursor: nwse-resize;  
+}
 .ql-editor .td-video .td-quill-resize-nub {
   position: absolute;
   height: 12px;
@@ -76,7 +82,7 @@
   background-color: #fff;
   border: 1px solid rgb(119, 119, 119);
   box-sizing: border-box;
-  cursor: nesw-resize;  
+  
 }
 .ql-editor .td-video .td-align-left:after{ 
   content: "\ \21E4"; 
